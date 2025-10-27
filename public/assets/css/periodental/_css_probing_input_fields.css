@@ -1,0 +1,160 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import "18_4.css";
+@import "17_4.css";
+@import "16_4.css";
+@import "15_4.css";
+@import "14_4.css";
+@import "13_3.css";
+@import "12_3.css";
+@import "11_3.css";
+
+@import "21_4.css";
+@import "22_3.css";
+@import "23_4.css";
+@import "24_4.css";
+@import "25_3.css";
+@import "26_4.css";
+@import "27_4.css";
+@import "28_4.css";
+
+@import "38_3.css";
+@import "37_4.css";
+@import "36_4.css";
+@import "35_3.css";
+@import "34_4.css";
+@import "33_3.css";
+@import "32_3.css";
+@import "31_3.css";
+
+@import "41_3.css";
+@import "42_3.css";
+@import "43_4.css";
+@import "44_4.css";
+@import "45_3.css";
+@import "46_3.css";
+@import "47_4.css";
+@import "48_3.css";
+
+@import "18_3.css";
+@import "17_3.css";
+@import "16_3.css";
+@import "15_3.css";
+@import "14_3.css";
+@import "13_4.css";
+@import "12_4.css";
+@import "11_4.css";
+
+@import "21_3.css";
+@import "22_4.css";
+@import "23_3.css";
+@import "24_3.css";
+@import "25_4.css";
+@import "26_3.css";
+@import "27_3.css";
+@import "28_3.css";
+
+@import "38_4.css";
+@import "37_3.css";
+@import "36_3.css";
+@import "35_4.css";
+@import "34_3.css";
+@import "33_4.css";
+@import "32_4.css";
+@import "31_4.css";
+
+@import "41_4.css";
+@import "42_4.css";
+@import "43_3.css";
+@import "44_3.css";
+@import "45_4.css";
+@import "46_4.css";
+@import "47_3.css";
+@import "48_4.css";
+
+/* Positionen der Eingabefelder */
+
+.input_pd {
+	position: absolute;
+	z-index: 70;
+	width: 15.2px;
+	height: 17px;
+	border: none;
+	font-family: "Arial Narrow", Sans-Serif;
+    font-stretch: extra-condensed;
+	font-size: 14px;
+	text-align: center;
+	padding: 0;
+	}
+
+.input_pd:focus {
+	background-color: lightsteelblue;
+    border-radius: 5px;
+	}
+
+.ok_bukk_pd_input input {
+	top: 454px;
+    background: transparent;
+    outline: none;
+}
+
+.ok_pal_pd_input input {
+	top: 828px;
+    background: transparent;
+    outline: none;
+}
+
+.uk_ling_pd_input input {
+	top: 1067px;
+    background: transparent;
+    outline: none;
+}
+
+.uk_bukk_pd_input input {
+	top: 1440px;
+    background: transparent;
+    outline: none;
+}
+
+.input_gm {
+	position: absolute;
+	z-index: 70;
+	width: 15.2px;
+	height: 17px;
+	border: none;
+	font-family: "Arial Narrow", Sans-Serif;
+    font-stretch: extra-condensed;
+	font-size: 14px;
+	text-align: center;
+	padding: 0;
+}
+
+.input_gm:focus {
+	background-color: lightsteelblue;
+    border-radius: 5px;
+	}
+
+.ok_bukk_gm_input input {
+	top: 434px;
+    background: transparent;
+    outline: none;
+}
+
+.ok_pal_gm_input input {
+	top: 808px;
+    background: transparent;
+    outline: none;
+}
+
+.uk_ling_gm_input input {
+	top: 1047px;
+    background: transparent;
+    outline: none;
+}
+
+.uk_bukk_gm_input input {
+	top: 1420px;
+    background: transparent;
+    outline: none;
+}

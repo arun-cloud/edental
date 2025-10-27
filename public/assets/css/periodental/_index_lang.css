@@ -1,0 +1,79 @@
+@charset "utf-8";
+/* CSS Document */
+
+.abbildung-01 {
+    position: relative;
+    /*border: solid 1px blue;*/
+    text-align: left;
+    top: 10px;
+}
+
+.anleitung-img {
+    position: relative;
+    left: 6px;
+    border: solid 1px lightgrey;
+    box-shadow: 0px 5px 15px -5px #CCCCCC;
+}
+
+#anleitung-img-01 {
+    position: relative;
+    top: 50px;
+    z-index: 0;   
+} 
+
+.anleitung-box {
+    border: solid 1px #B6B3B3;
+    border-left: solid 3px #17669D;
+    background-color: #EFEFEF;
+    border-radius: 5px;
+    width: 345px;
+    padding: 0px 10px 0px 10px;
+    /*box-shadow: 0px 5px 15px -5px #CCCCCC;*/
+    box-shadow: 5px 5px 5px #DDDDDD;
+}
+
+.anleitung-box p {
+    font-size: 12px;
+}
+
+#anleitung-box-1 {
+    position: absolute;
+    top: 0px;
+    left: 350px;
+    z-index: 1;
+}
+
+#anleitung-box-2 {
+    position: absolute;
+    top: 105px;
+    left: 350px;
+    z-index: 1;
+}
+
+#anleitung-box-3 {
+    position: absolute;
+    top: 174px;
+    left: 350px;
+    z-index: 1;
+}
+
+#anleitung-box-4 {
+    position: absolute;
+    top: 260px;
+    left: 350px;
+    z-index: 1;
+}
+
+#anleitung-box-5 {
+    position: absolute;
+    top: 390px;
+    left: 350px;
+    z-index: 1;
+}
+
+#anleitung-box-6 {
+    position: absolute;
+    top: 560px;
+    left: 350px;
+    z-index: 1;
+}

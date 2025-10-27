@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import "18_2.css";
+@import "17_2.css";
+@import "16_2.css";
+@import "15_2.css";
+@import "14_2.css";
+@import "13_2.css";
+@import "12_2.css";
+@import "11_2.css";
+
+@import "21_2.css";
+@import "22_2.css";
+@import "23_2.css";
+@import "24_2.css";
+@import "25_2.css";
+@import "26_2.css";
+@import "27_2.css";
+@import "28_2.css";
+
+@import "38_2.css";
+@import "37_2.css";
+@import "36_2.css";
+@import "35_2.css";
+@import "34_2.css";
+@import "33_2.css";
+@import "32_2.css";
+@import "31_2.css";
+
+@import "41_2.css";
+@import "42_2.css";
+@import "43_2.css";
+@import "44_2.css";
+@import "45_2.css";
+@import "46_2.css";
+@import "47_2.css";
+@import "48_2.css";
+
+.pi_hover_btn {
+	position: absolute;
+	z-index: 40;
+	background-color: #E9E9E9;
+	opacity: 1;
+	text-align: center;
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+	cursor: pointer;
+}
+
+.pi_hover_btn:hover {
+	background-color: #CCCCF1;
+	opacity: 1;
+}

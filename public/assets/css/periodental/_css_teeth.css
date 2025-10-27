@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import "18.css";
+@import "17.css";
+@import "16.css";
+@import "15.css";
+@import "14.css";
+@import "13.css";
+@import "12.css";
+@import "11.css";
+
+@import "21.css";
+@import "22.css";
+@import "23.css";
+@import "24.css";
+@import "25.css";
+@import "26.css";
+@import "27.css";
+@import "28.css";
+
+@import "38.css";
+@import "37.css";
+@import "36.css";
+@import "35.css";
+@import "34.css";
+@import "33.css";
+@import "32.css";
+@import "31.css";
+
+@import "41.css";
+@import "42.css";
+@import "43.css";
+@import "44.css";
+@import "45.css";
+@import "46.css";
+@import "47.css";
+@import "48.css";
+
+.tooth_hover_btn {
+	position: absolute;
+	z-index: 40;
+	line-height: 14.5px;
+	background-color: #ECECEC;
+	text-align: center;
+	font-family: "Arial Narrow", Sans-Serif;
+	font-weight: bold;
+	font-size: 14px;
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+	cursor: pointer;
+}
+
+.tooth_hover_btn:hover {
+	background-color: #D3DFE7;
+}

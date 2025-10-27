@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import "18_1.css";
+@import "17_1.css";
+@import "16_1.css";
+@import "15_1.css";
+@import "14_1.css";
+@import "13_1.css";
+@import "12_1.css";
+@import "11_1.css";
+
+@import "21_1.css";
+@import "22_1.css";
+@import "23_1.css";
+@import "24_1.css";
+@import "25_1.css";
+@import "26_1.css";
+@import "27_1.css";
+@import "28_1.css";
+
+@import "38_1.css";
+@import "37_1.css";
+@import "36_1.css";
+@import "35_1.css";
+@import "34_1.css";
+@import "33_1.css";
+@import "32_1.css";
+@import "31_1.css";
+
+@import "41_1.css";
+@import "42_1.css";
+@import "43_1.css";
+@import "44_1.css";
+@import "45_1.css";
+@import "46_1.css";
+@import "47_1.css";
+@import "48_1.css";
+
+.bop_hover_btn {
+	position: absolute;
+	z-index: 40;
+	background-color: #E9E9E9;
+	opacity: 1;
+	text-align: center;
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+	cursor: pointer;
+}
+
+.bop_hover_btn:hover {
+	background-color: #F1CCCC;
+	opacity: 1;
+}
