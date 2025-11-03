@@ -45,6 +45,7 @@ use App\Http\Controllers\form_layouts\HorizontalForm;
 use App\Http\Controllers\tables\Basic as TablesBasic;
 
 use App\Http\Controllers\PeriodentalController;
+use App\Http\Controllers\OdontogramChartController;
 
 
 // Main Page Route
@@ -111,5 +112,7 @@ Route::get('/form/layouts-horizontal', [HorizontalForm::class, 'index'])->name('
 // tables
 Route::get('/tables/basic', [TablesBasic::class, 'index'])->name('tables-basic');
 
-// charts
+// periodental-chart
 Route::get('/charts/periodental', [PeriodentalController::class, 'index'])->name('charts-periodental');
+// odontogram-chart
+Route::get('/charts/odontogram', [OdontogramChartController::class, 'index'])->name('charts-odontogram');

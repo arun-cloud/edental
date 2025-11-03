@@ -24,7 +24,7 @@ $footerFixed = isset($configData['footerFixed']) ? $configData['footerFixed'] : 
 $menuCollapsed = isset($configData['menuCollapsed']) ? $configData['menuCollapsed'] : '';
 
 /* Content classes */
-$container = ($container ?? 'container-xxl');
+$container = ($container ?? 'container-fluid');
 
 @endphp
 
