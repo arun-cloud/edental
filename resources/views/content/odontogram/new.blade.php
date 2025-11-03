@@ -363,6 +363,7 @@ function buildIndicators(){
     // chip.textContent = ind.level==='surface' ? 'S' : 'T';
 
     const icon = document.createElement('i');
+    icon.style.color = ind.color;
     icon.className = ind.icon;
 
     chip.appendChild(icon);
