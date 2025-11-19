@@ -63,12 +63,12 @@
   .teeth-row{display:flex; justify-content:center; gap:8px; flex-wrap:wrap}
   .tooth{
     width:80px; display:flex; flex-direction:column; align-items:center; gap:4px;
-    padding:8px 6px 14px; border-radius:10px; position:relative; cursor:pointer; background:#fff
+    padding:8px 6px 14px; border-radius:10px; position:relative; cursor:pointer;  
   }
-  .tooth:hover{box-shadow:0 2px 10px rgba(0,0,0,.08)}
+  /* .tooth:hover{box-shadow:0 2px 10px rgba(0,0,0,.08)} */
   .tooth-img-box{
-    width:80px; height:80px; position:relative; overflow:hidden; border-radius:6px;
-    border:1px solid #e5e5e5; background:#fff
+    width:110px; height:110px; position:relative; overflow:hidden; border-radius:6px;
+ 
   }
   .tooth-img{width:100%; height:100%; object-fit:contain; pointer-events:none}
   .overlay{
