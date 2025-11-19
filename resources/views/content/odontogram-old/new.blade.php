@@ -297,7 +297,7 @@ function toothBox(number, arch){
   const img = document.createElement('img');
   img.className='tooth-img';
   let base = ((number>=11 && number<=28) ? 'dentadura-sup-' : 'dentadura-inf-');
-  img.src = `{{ asset('assets/img/odontogram_new/${number}.png')}}`; // adjust to your path
+  img.src = `{{ asset('assets/img/odontogram/${base}${number}.png')}}`; // adjust to your path
   img.alt = `Tooth ${number}`;
   imgBox.appendChild(img);
 
