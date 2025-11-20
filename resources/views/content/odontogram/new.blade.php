@@ -60,17 +60,29 @@
   .undo:disabled,.redo:disabled{background:#ccc; cursor:not-allowed; opacity:.6}
   .chart{background:#fff; border:1px solid #e6e6e6; border-radius:8px; padding:16px}
   .arch{font-weight:800; text-align:center; margin:10px 0}
-  .teeth-row{display:flex; justify-content:center; gap:8px; flex-wrap:wrap}
-  .tooth{
-    width:80px; display:flex; flex-direction:column; align-items:center; gap:4px;
-    padding:8px 6px 14px; border-radius:10px; position:relative; cursor:pointer;  
-  }
+  
+  .teeth-row{display:flex; justify-content:center; gap: 0 !important; flex-wrap:nowrap}
+  .tooth {
+  width: 80px;              /* or 70 if you want them tighter */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
   /* .tooth:hover{box-shadow:0 2px 10px rgba(0,0,0,.08)} */
+  
   .tooth-img-box{
-    width:110px; height:110px; position:relative; overflow:hidden; border-radius:6px;
+    width:100px; height:100px; position:relative; overflow:hidden; border-radius:6px; padding:0; margin:0;
  
   }
-  .tooth-img{width:100%; height:100%; object-fit:contain; pointer-events:none}
+  .tooth-img{width:100%; height:100%; object-fit:contain; }
+
+  
+
+
   .overlay{
     position:absolute; inset:0; pointer-events:none; z-index:2; overflow:hidden;
   }
@@ -106,6 +118,7 @@
   /* tiny helper below tooth */
   .tooth-footer{height:12px; width:100%; display:flex; align-items:center; justify-content:center}
 </style>
+<link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
 @endsection
 
 
@@ -151,6 +164,18 @@
 
           <div class="arch" style="margin-top:26px">LINGUAL (Mandibular)</div>
           <div class="teeth-row" id="rowMan"></div>
+
+          <div id="odontogram-modal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2 id="modal-title"></h2>
+    <form>
+      <label for="note">Add Note/Status:</label>
+      <textarea id="note" rows="3"></textarea>
+      <button type="submit">Save</button>
+    </form>
+  </div>
+</div>  
         </div>
       </div>
     </div>
@@ -163,49 +188,22 @@
 /* =============================
    Indicator catalog (full, with colors)
    ============================= */
-// const INDICATORS = [
-//   // Surface based
-//   { id:'caries', name:'Dental Caries', level:'surface', style:'fill', color:'#FF0000' },
-//   { id:'amalgam', name:'Amalgam Restoration', level:'surface', style:'fill', color:'#0047AB' },
-//   { id:'composite', name:'Composite Restoration', level:'surface', style:'outline', color:'#2196F3' },
-//   { id:'temporary', name:'Temporary Filling', level:'surface', style:'fill', color:'#FFD700' },
-//   { id:'sealant', name:'Sealant', level:'surface', style:'outline', color:'#00C853' },
-//   { id:'restoration-failure', name:'Restoration Needs Intervention', level:'surface', style:'outline', color:'#FF0000' },
-//   { id:'overhang', name:'Overhanging Restoration', level:'surface', style:'corner', color:'#FF0000' },
 
-//   // Tooth based: fractures / pathology
-//   { id:'crown-fracture', name:'Crown Fracture', level:'tooth', draw:'crown-fracture', color:'#FF0000' },
-//   { id:'root-fracture', name:'Root Fracture', level:'tooth', draw:'root-fracture', color:'#FF0000' },
-//   { id:'periapical', name:'Periapical Pathology', level:'tooth', draw:'periapical', color:'#FF0000' },
+document.addEventListener('DOMContentLoaded', function () {
+    if (window.location.pathname.includes('odontogram')) {
+        document.body.classList.add('layout-menu-collapsed');
+        document.body.classList.remove('layout-menu-expanded');
+    }
 
-//   // Tooth based: RCT indicators
-//   { id:'rct', name:'Root Canal Filled (Complete)', level:'tooth', draw:'rct', color:'#2196F3' },
-//   { id:'incomplete-rct', name:'Incomplete Root Canal', level:'tooth', draw:'rct-dashed', color:'#2196F3' },
-//   { id:'canal-fill', name:'Canal Filling (Single)', level:'tooth', draw:'rct-single', color:'#2196F3' },
-//   { id:'improper-rct', name:'Improper RCT (Needs Intervention)', level:'tooth', draw:'rct-warning', color:'#FF0000' },
+});
 
-//   // Tooth based: eruption / soft tissue / retention
-//   { id:'impacted', name:'Impacted Tooth', level:'tooth', draw:'impaction', color:'#FF0000' },
-//   { id:'partial-eruption', name:'Partial Eruption', level:'tooth', draw:'eruption-line', color:'#FF0000' },
-//   { id:'soft-tissue', name:'Soft Tissue Abnormality (Needs Intervention)', level:'tooth', draw:'gingival-wave', color:'#FF0000' },
-//   { id:'retained-deciduous', name:'Retained Deciduous Tooth', level:'tooth', draw:'retained-D', color:'#2196F3' },
+let AI_MAP = {};
 
-//   // Missing teeth (two flavors)
-//   { id:'missing-noneed', name:'Missing Tooth – No Intervention', level:'tooth', draw:'x-blue', color:'#2196F3' },
-//   { id:'missing-need', name:'Missing Tooth – Needs Intervention', level:'tooth', draw:'x-red', color:'#FF0000' },
+async function loadAIMap() {
+   AI_MAP = await fetch("{{ asset('assets/js/odontogram/tooth_map.json') }}")
+    .then(r => r.json());
 
-//   // Prosthetics
-//   { id:'metal-crown', name:'Metal Crown', level:'tooth', draw:'crown-metal', color:'#2196F3' },
-//   { id:'pfm-crown', name:'Porcelain-Fused-to-Metal Crown', level:'tooth', draw:'crown-pfm', color:'#2196F3' },
-//   { id:'rpd', name:'Removable Partial Denture', level:'tooth', draw:'rpd', color:'#2196F3' },
-//   { id:'bridge', name:'Fixed Bridge (select two teeth)', level:'tooth', draw:'bridge', color:'#2196F3' },
-//   { id:'implant', name:'Implant', level:'tooth', draw:'implant', color:'#2196F3' },
-
-//   // Position
-//   { id:'rotation', name:'Rotation', level:'tooth', draw:'rotation', color:'#FF0000' },
-//   { id:'malposed', name:'Malposed Tooth', level:'tooth', draw:'malposition', color:'#FF0000' },
-//   { id:'extrusion', name:'Extrusion / Intrusion', level:'tooth', draw:'extrusion', color:'#FF0000' },
-// ];
+}
 
 
 const INDICATORS = [
@@ -650,9 +648,10 @@ function drawSymbol(svg, kind, color, box, number){
 
     /* Periapical */
     case 'periapical': {
-      circleEl(svg,40,70,7,color,'rgba(255,0,0,0.10)',2);
-      break;
-    }
+  const p = AI_MAP[number]?.apex || {x:40,y:70};
+  circleEl(svg, p[0], p[1], 7, color, "rgba(255,0,0,0.10)", 2);
+  break;
+}
 
     /* Eruption / Impaction / Soft tissue / Retained */
     case 'eruption-line': {
@@ -773,16 +772,17 @@ document.getElementById('undoBtn').addEventListener('click',undo);
 document.getElementById('redoBtn').addEventListener('click',redo);
 
 /* =============================
-   Boot
+   Boot (fixed async sequence)
    ============================= */
+async function odontogramBoot() {
+    await loadAIMap();     // load AI mapping first
+    buildIndicators();      // build UI indicator list
+    initRows();             // add 32 teeth to UI
+    snapshot();             // initial empty state
+}
 
-buildIndicators();
 
-
-initRows();
-
-snapshot(); // initial empty
-
+document.addEventListener("DOMContentLoaded", odontogramBoot);
 
 </script>
 @endsection

@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 
     <div class="menu-divider mt-0"></div>
     <div class="menu-inner-shadow"></div>
+<div class="menu-toggle-btn d-flex align-items-center justify-content-end px-2 py-2">
+    <i class="bx bx-chevron-left cursor-pointer" id="menuToggleBtn" style="font-size: 24px;"></i>
+</div>
 
     <ul class="menu-inner py-1">
         @foreach ($menuData[0]->menu as $menu)

@@ -32,7 +32,7 @@
     @include('layouts/sections/scriptsIncludes')
 </head>
 
-<body>
+<body class="layout-menu-fixed layout-menu-expanded">
     <!-- Layout Content -->
     @yield('layoutContent')
     <!--/ Layout Content -->

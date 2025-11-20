@@ -1,0 +1,21 @@
+/* collapsed sidebar */
+.layout-menu-collapsed .layout-menu {
+    width: 65px !important;
+    transition: width 0.3s ease;
+}
+
+/* hide text when collapsed */
+.layout-menu-collapsed .menu-link div {
+    display: none;
+}
+
+/* icon centered */
+.layout-menu-collapsed .menu-icon {
+    margin-right: 0;
+}
+
+/* toggle button rotates */
+.layout-menu-collapsed #menuToggleBtn {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
